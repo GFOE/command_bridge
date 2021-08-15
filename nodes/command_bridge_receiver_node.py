@@ -55,7 +55,8 @@ def processMessage(cmd, args):
         mission_plan_pub.publish(s)
     if cmd == 'piloting_mode':
         s = String(args)
-        piloting_mode_pub.publish(s)
+        rospy.logwarn("Received piloting_mode command - ignoring it!")
+        #piloting_mode_pub.publish(s)
     if cmd in ('goto_line','start_line','goto','hover','clear_mission'):
         if args is None:
             s = String(cmd)
